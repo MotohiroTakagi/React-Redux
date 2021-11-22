@@ -2,11 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+// ReactのコンポーネントからReduxのstoreにアクセスするためにはProviderコンポーネントが必要
+import { Provider } from "react-redux"
+import store from './store/index'
 
 ReactDOM.render(
-  <React.StrictMode>
+  // Providerでコンポーネントを包むことでreduxという独立した機能をReactと連携させる
+  // storeをpropsとしてProviderコンポーネントに渡す
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
